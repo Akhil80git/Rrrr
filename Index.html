@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Container with Scrollable Content - Fixed</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      overflow-x: hidden;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background-color: pink;
+      z-index: 1000;
+    }
+
+    .outer-container {
+      border: 2px solid red;
+      padding: 10px;
+      box-sizing: border-box;
+      
+      /* Fixed positioning with all four sides specified */
+      position: fixed;
+      top: 40px;     /* 30px (top-nav) + 10px gap */
+      bottom: 40px;  /* 20px (bottom-nav) + 20px gap */
+      left: 82px;    /* Instead of margin-left */
+      right: 2px;   /* Add right margin */
+      
+      /* Enable scrolling for inner content */
+      overflow: auto;
+    }
+
+    .container {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: 1fr;
+      width: 100%;
+      /* Height determined by content */
+      height: max-content;
+    }
+
+    .box {
+      background: #4CAF50;
+      color: white;
+      padding: 40px;
+      text-align: center;
+      font-size: 20px;
+      border-radius: 10px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-color: green;
+      z-index: 1000;
+    }
+
+    /* Tablet: 4 boxes per row */
+    @media (min-width: 600px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* Desktop: 6 boxes per row */
+    @media (min-width: 1024px) {
+      .container {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-nav"></div>
+
+  <div class="outer-container">
+    <div class="container">
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">Box 3</div>
+      <div class="box">Box 4</div>
+      <div class="box">Box 5</div>
+      <div class="box">Box 6</div>
+      <div class="box">Box 7</div>
+      <div class="box">Box 8</div>
+      <div class="box">Box 9</div>
+      <div class="box">Box 10</div>
+      <div class="box">Box 11</div>
+      <div class="box">Box 12</div>
+      <div class="box">Box 13</div>
+      <div class="box">Box 14</div>
+      <div class="box">Box 15</div>
+      <div class="box">Box 16</div>
+      <div class="box">Box 17</div>
+      <div class="box">Box 18</div>
+      <div class="box">Box 19</div>
+      <div class="box">Box 20</div>
+      <div class="box">Box 21</div>
+      <div class="box">Box 22</div>
+      <div class="box">Box 23</div>
+      <div class="box">Box 24</div>
+    </div>
+  </div>
+
+  <div class="bottom-nav"></div>
+</body>
+</html>
